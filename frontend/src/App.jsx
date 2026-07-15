@@ -1,0 +1,92 @@
+import { useMemo, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { Navbar, Breadcrumbs } from './components/Layout';
+import CommandPalette from './components/CommandPalette';
+import FloatingActionButton from './components/FloatingActionButton';
+import Modal from './components/Modal';
+import HomePage from './pages/HomePage';
+import DashboardPage from './pages/DashboardPage';
+import MembersPage from './pages/MembersPage';
+import SavingsPage from './pages/SavingsPage';
+import LoansPage from './pages/LoansPage';
+import MeetingsPage from './pages/MeetingsPage';
+import ReportsPage from './pages/ReportsPage';
+import AnalyticsPage from './pages/AnalyticsPage';
+import AuthPage from './pages/AuthPage';
+import NotFoundPage from './pages/NotFoundPage';
+import { useAppData } from './contexts/AppDataContext';
+
+function App() {
+  const [commandOpen, setCommandOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalMode, setModalMode] = useState('member');
+  const [form, setForm] = useState({ name: '', phone: '', village: '', savings: '', member: '', amount: '', title: '', time: '', note: '' });
+  const { addMember, recordSavings, approveLoan, addMeeting, askSakhiAI } = useAppData();
+
+  const openModal = (mode) => {
+    setModalMode(mode);
+    setModalOpen(true);
+  };
+
+  const submitQuickAction = (event) => {
+    event.preventDefault();
+    if (modalMode === 'member') {
+      addMember({ name: form.name, phone: form.phone, village: form.village, savings: form.savings });
+    }
+    if (modalMode === 'savings') {
+      recordSavings({ member: form.member, amount: form.amount });
+    }
+    if (modalMode === 'meeting') {
+      addMeeting({ title: form.title, time: form.time, note: form.note });
+    }
+    setModalOpen(false);
+    setForm({ name: '', phone: '', village: '', savings: '', member: '', amount: '', title: '', time: '', note: '' });
+  };
+
+  return (
+    <>
+      <Navbar onOpenCommand={() => setCommandOpen(true)} />
+      <Breadcrumbs />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/members" element={<MembersPage />} />
+        <Route path="/savings" element={<SavingsPage />} />
+        <Route path="/loans" element={<LoansPage />} />
+        <Route path="/meetings" element={<MeetingsPage />} />
+        <Route path="/reports" element={<ReportsPage />} />
+        <Route path="/analytics" element={<AnalyticsPage />} />
+        <Route path="/login" element={<AuthPage />} />
+        <Route path="/register" element={<AuthPage />} />
+        <Route path="/forgot-password" element={<AuthPage />} />
+        <Route path="/verify-email" element={<AuthPage />} />
+        <Route path="/otp" element={<AuthPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+      <CommandPalette open={commandOpen} onClose={() => setCommandOpen(false)} onOpen={() => setCommandOpen(true)} />
+      <FloatingActionButton onOpenModal={() => openModal('member')} />
+      <Modal open={modalOpen} title={modalMode === 'member' ? 'नया सदस्य जोड़ें' : modalMode === 'savings' ? 'बचत दर्ज करें' : 'बैठक जोड़ें'} onClose={() => setModalOpen(false)}>
+        <form onSubmit={submitQuickAction} style={{ display: 'grid', gap: '.8rem' }}>
+          {modalMode === 'member' && (<>
+            <input className="input" placeholder="नाम" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
+            <input className="input" placeholder="फोन नंबर" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} required />
+            <input className="input" placeholder="गाँव" value={form.village} onChange={(e) => setForm({ ...form, village: e.target.value })} required />
+            <input className="input" placeholder="शुरू बचत" value={form.savings} onChange={(e) => setForm({ ...form, savings: e.target.value })} />
+          </>) }
+          {modalMode === 'savings' && (<>
+            <input className="input" placeholder="सदस्य का नाम" value={form.member} onChange={(e) => setForm({ ...form, member: e.target.value })} required />
+            <input className="input" placeholder="राशि" type="number" value={form.amount} onChange={(e) => setForm({ ...form, amount: e.target.value })} required />
+          </>) }
+          {modalMode === 'meeting' && (<>
+            <input className="input" placeholder="बैठक का नाम" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required />
+            <input className="input" placeholder="समय" value={form.time} onChange={(e) => setForm({ ...form, time: e.target.value })} required />
+            <input className="input" placeholder="नोट" value={form.note} onChange={(e) => setForm({ ...form, note: e.target.value })} required />
+          </>) }
+          <button className="btn btn-primary" type="submit">सहेजें</button>
+        </form>
+      </Modal>
+    </>
+  );
+}
+
+export default App;
