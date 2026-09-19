@@ -8,6 +8,16 @@ const translations = {
     navFaq: 'FAQ',
     signIn: 'Sign In',
     openDashboard: 'Open Dashboard',
+    phoneLabel: 'Phone',
+    dashboard: 'Dashboard',
+    payments: 'Payments',
+    paymentHistory: 'Payment History',
+    totalPayments: 'Total Payments',
+    upcomingPayments: 'Upcoming Payments',
+    recordPayment: 'Record Payment',
+    newMember: 'New Member',
+    addMember: 'Add Member',
+    memberRole: 'SHG Leader',
     heroBadge: 'Trusted by NGOs and rural finance leaders',
     heroTitle: 'Empowering Rural Women Through Digital Self Help Group Management',
     heroSubtitle: 'Manage members, savings, loans, meetings, reports, and analytics in one secure platform tailored for rural institutions and community networks.',
@@ -36,7 +46,6 @@ const translations = {
     membersBadge: 'Member Directory',
     membersTitle: 'Community members at a glance',
     searchMember: 'Search member',
-    addMember: 'Add Member',
     memberColumn: 'Member',
     joinedColumn: 'Joined',
     savingsColumn: 'Savings',
@@ -139,7 +148,13 @@ const translations = {
     authButtonVerify: 'Verify Email',
     authButtonOtp: 'Verify Code',
     authNavCreate: 'Create account',
-    authNavForgot: 'Forgot password?'
+    authNavForgot: 'Forgot password?',
+    paymentStatus: 'Status',
+    paymentMethod: 'Method',
+    paymentAmount: 'Amount',
+    paymentDate: 'Date',
+    paymentSuccess: 'Paid',
+    paymentPending: 'Pending'
   },
   hi: {
     navFeatures: 'विशेषताएँ',
@@ -426,7 +441,7 @@ const translations = {
 const LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState('hi');
+  const [language, setLanguage] = useState('en');
   const value = useMemo(() => ({
     language,
     setLanguage,

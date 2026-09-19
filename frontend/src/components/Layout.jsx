@@ -19,7 +19,7 @@ export function Navbar({ onOpenCommand }) {
           <a href="#how-it-works">{t('navHowItWorks')}</a>
           <a href="#stories">{t('navStories')}</a>
           <a href="#faq">{t('navFaq')}</a>
-          <button className="btn btn-secondary" style={{padding:'0.75rem'}} onClick={() => setLanguage(language === 'hi' ? 'en' : 'hi')}>{language === 'hi' ? 'EN' : 'हिंदी'}</button>
+          <button className="btn btn-secondary" style={{padding:'0.75rem'}} onClick={() => setLanguage(language === 'en' ? 'hi' : 'en')}>{language === 'en' ? 'हिंदी' : 'EN'}</button>
           <button className="btn btn-secondary" style={{padding:'0.75rem'}} onClick={onOpenCommand}><Search size={16}/></button>
           <button className="btn btn-secondary" style={{padding:'0.75rem'}} onClick={toggleTheme}>{theme === 'light' ? <Moon size={16}/> : <Sun size={16}/>}</button>
           <Link to="/login" className="btn btn-secondary">{t('signIn')}</Link>

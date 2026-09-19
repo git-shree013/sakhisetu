@@ -10,8 +10,9 @@ export default function FloatingActionButton({ onOpenModal }) {
       <AnimatePresence>
         {open && (
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }} style={{ display: 'grid', gap: '.6rem', marginBottom: '.7rem' }}>
-            <button className="btn btn-secondary" style={{ boxShadow: '0 12px 30px rgba(15,23,42,.1)' }} onClick={onOpenModal}>नया सदस्य</button>
-            <button className="btn btn-secondary" style={{ boxShadow: '0 12px 30px rgba(15,23,42,.1)' }} onClick={onOpenModal}>बचत दर्ज करें</button>
+            <button className="btn btn-secondary" style={{ boxShadow: '0 12px 30px rgba(15,23,42,.1)' }} onClick={() => onOpenModal('member')}>New member</button>
+            <button className="btn btn-secondary" style={{ boxShadow: '0 12px 30px rgba(15,23,42,.1)' }} onClick={() => onOpenModal('savings')}>Record savings</button>
+            <button className="btn btn-secondary" style={{ boxShadow: '0 12px 30px rgba(15,23,42,.1)' }} onClick={() => onOpenModal('payment')}>Record payment</button>
           </motion.div>
         )}
       </AnimatePresence>

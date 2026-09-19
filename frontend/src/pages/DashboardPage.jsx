@@ -6,17 +6,17 @@ import SakhiAI from '../components/SakhiAI';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const cards = [
-  { title: 'कुल सदस्य', value: '1,248', change: '+12.4%', icon: Users },
-  { title: 'कुल बचत', value: '₹24.8L', change: '+8.2%', icon: Wallet2 },
-  { title: 'सक्रिय ऋण', value: '184', change: '+5.1%', icon: Landmark },
-  { title: 'मासिक संग्रह', value: '₹4.6L', change: '+14.3%', icon: CircleDollarSign }
+  { title: 'Total Members', value: '1,248', change: '+12.4%', icon: Users },
+  { title: 'Total Savings', value: '₹24.8L', change: '+8.2%', icon: Wallet2 },
+  { title: 'Active Loans', value: '184', change: '+5.1%', icon: Landmark },
+  { title: 'Monthly Collection', value: '₹4.6L', change: '+14.3%', icon: CircleDollarSign }
 ];
 
 const activities = [
-  { title: 'शांति देवी ने ₹3,500 जमा किए', time: '8 मिनट पहले', tone: 'approved' },
-  { title: 'मीरा का ऋण अनुरोध मंजूर हुआ', time: '1 घंटा पहले', tone: 'approved' },
-  { title: 'बैठक की सूची अपडेट की गई', time: '4 घंटे पहले', tone: 'pending' },
-  { title: 'किस्त की याद दिलाने की नोटिस बनाई गई', time: 'कल', tone: 'pending' }
+  { title: 'Shanti Devi deposited ₹3,500', time: '8 minutes ago', tone: 'approved' },
+  { title: 'Meera Bai loan request approved', time: '1 hour ago', tone: 'approved' },
+  { title: 'Meeting list updated', time: '4 hours ago', tone: 'pending' },
+  { title: 'Repayment reminder note created', time: 'Tomorrow', tone: 'pending' }
 ];
 
 export default function DashboardPage() {
@@ -33,6 +33,7 @@ export default function DashboardPage() {
           <Link className="active" to="/dashboard"><TrendingUp size={18}/> Dashboard</Link>
           <Link to="/members"><Users size={18}/> Members</Link>
           <Link to="/savings"><Wallet2 size={18}/> Savings</Link>
+          <Link to="/payments"><CircleDollarSign size={18}/> Payments</Link>
           <Link to="/loans"><Landmark size={18}/> Loans</Link>
           <Link to="/meetings"><CalendarDays size={18}/> Meetings</Link>
           <Link to="/reports"><FileText size={18}/> Reports</Link>
@@ -48,7 +49,7 @@ export default function DashboardPage() {
             <div style={{display:'flex', gap:'.6rem', alignItems:'center'}}>
               <button className="btn btn-secondary"><Search size={16}/></button>
               <button className="btn btn-secondary"><Bell size={16}/></button>
-              <Link to="/members" className="btn btn-primary"><Plus size={16}/> नया सदस्य</Link>
+              <Link to="/members" className="btn btn-primary"><Plus size={16}/> New member</Link>
             </div>
           </div>
 
@@ -68,8 +69,8 @@ export default function DashboardPage() {
             </div>
             <div className="card" style={{padding:'1.2rem'}}>
               <div className="section-title" style={{marginBottom:'1rem'}}>
-                <h2 style={{fontSize:'1.2rem'}}>आगामी बैठकें</h2>
-                <a href="#" className="muted">सभी देखें</a>
+                <h2 style={{fontSize:'1.2rem'}}>Upcoming meetings</h2>
+                <a href="#" className="muted">View all</a>
               </div>
               <div style={{display:'grid', gap:'.8rem'}}>
                 {['Monthly Review', 'Loan Committee', 'Savings Circle'].map((item, idx) => <div key={idx} className="card" style={{padding:'.9rem', background:'#fdfcf7'}}>
@@ -83,8 +84,8 @@ export default function DashboardPage() {
           <div className="grid-2" style={{marginTop:'1.2rem', gap:'1rem'}}>
             <div className="card" style={{padding:'1.2rem'}}>
               <div className="section-title">
-                <h2 style={{fontSize:'1.2rem'}}>हाल की गतिविधि</h2>
-                <a href="#" className="muted">अपडेट</a>
+                <h2 style={{fontSize:'1.2rem'}}>Recent activity</h2>
+                <a href="#" className="muted">Update</a>
               </div>
               <div style={{display:'grid', gap:'.8rem'}}>
                 {activities.map((item, idx) => <div key={idx} style={{display:'flex', justifyContent:'space-between', alignItems:'center', padding:'.8rem 0', borderBottom:'1px solid var(--border)'}}>
@@ -92,7 +93,7 @@ export default function DashboardPage() {
                     <div style={{fontWeight:700}}>{item.title}</div>
                     <div className="muted">{item.time}</div>
                   </div>
-                  <span className={`status-pill ${item.tone === 'approved' ? 'status-approved' : 'status-pending'}`}>{item.tone === 'approved' ? 'मंजूर' : 'लागू'}</span>
+                  <span className={`status-pill ${item.tone === 'approved' ? 'status-approved' : 'status-pending'}`}>{item.tone === 'approved' ? 'Approved' : 'Pending'}</span>
                 </div>)}
               </div>
             </div>

@@ -43,7 +43,7 @@ export default function SavingsPage() {
               <table className="table">
                 <thead><tr><th>{t('memberColumn')}</th><th>{t('dateColumn')}</th><th>{t('amountColumn')}</th><th>{t('statusColumn')}</th></tr></thead>
                 <tbody>
-                  {savings.map((tx) => <tr key={tx.id}><td>{tx.member}</td><td>{tx.date}</td><td>₹{tx.amount.toLocaleString('en-IN')}</td><td><span className="status-pill status-approved">साफ</span></td></tr>)}
+                  {savings.map((tx) => <tr key={tx.id}><td>{tx.member}</td><td>{tx.date}</td><td>₹{tx.amount.toLocaleString('en-IN')}</td><td><span className="status-pill status-approved">Clear</span></td></tr>)}
                 </tbody>
               </table>
             </div>

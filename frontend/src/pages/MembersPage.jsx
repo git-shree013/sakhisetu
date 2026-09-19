@@ -28,7 +28,7 @@ export default function MembersPage() {
             <div style={{marginTop:'1rem', overflowX:'auto'}}>
               <table className="table">
                 <thead>
-                  <tr><th>{t('memberColumn')}</th><th>फोन</th><th>{t('savingsColumn')}</th><th>{t('loanColumn')}</th><th>{t('attendanceColumn')}</th><th>{t('statusColumn')}</th></tr>
+                  <tr><th>{t('memberColumn')}</th><th>Phone</th><th>{t('savingsColumn')}</th><th>{t('loanColumn')}</th><th>{t('attendanceColumn')}</th><th>{t('statusColumn')}</th></tr>
                 </thead>
                 <tbody>
                   {members.map((member, idx) => <tr key={idx}>
@@ -37,13 +37,13 @@ export default function MembersPage() {
                         <div style={{width:'42px', height:'42px', borderRadius:'50%', background:'linear-gradient(135deg, var(--accent-soft), var(--blue))', display:'grid', placeItems:'center', fontWeight:700}}>{member.name.split(' ').map(x=>x[0]).join('')}</div>
                         <div>
                           <div style={{fontWeight:700}}>{member.name}</div>
-                          <div className="muted">SHG नेता</div>
+                          <div className="muted">SHG leader</div>
                         </div>
                       </div>
                     </td>
                     <td>{member.phone}</td>
                     <td>₹{member.savings.toLocaleString('en-IN')}</td>
-                    <td><span className={`status-pill ${member.loan === 'मंजूर' || member.loan === 'खुली' ? 'status-approved' : 'status-pending'}`}>{member.loan}</span></td>
+                    <td><span className={`status-pill ${member.loan === 'Approved' || member.loan === 'Open' ? 'status-approved' : 'status-pending'}`}>{member.loan}</span></td>
                     <td>{member.attendance}</td>
                     <td>{member.status}</td>
                   </tr>)}

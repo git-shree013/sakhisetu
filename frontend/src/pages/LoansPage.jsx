@@ -27,8 +27,8 @@ export default function LoansPage() {
                   <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
                     <div><div style={{fontWeight:700}}>{loan.member}</div><div className="muted">{loan.tenure}</div></div>
                     <div style={{display:'flex', gap:'.5rem', alignItems:'center'}}>
-                      <span className={`status-pill ${loan.status === 'मंजूर' ? 'status-approved' : loan.status === 'अतिदेय' ? 'status-overdue' : 'status-pending'}`}>{loan.status}</span>
-                      {loan.status !== 'मंजूर' && <button className="btn btn-secondary" style={{padding:'0.4rem 0.7rem'}} onClick={() => approveLoan(loan.id)}>मंजूर करें</button>}
+                      <span className={`status-pill ${loan.status === 'Approved' ? 'status-approved' : loan.status === 'Overdue' ? 'status-overdue' : 'status-pending'}`}>{loan.status}</span>
+                      {loan.status !== 'Approved' && <button className="btn btn-secondary" style={{padding:'0.4rem 0.7rem'}} onClick={() => approveLoan(loan.id)}>Approve</button>}
                     </div>
                   </div>
                   <div style={{marginTop:'.65rem', fontWeight:700, color:'var(--accent-dark)'}}>₹{loan.amount.toLocaleString('en-IN')}</div>
