@@ -33,7 +33,6 @@ export default function DashboardPage() {
           <Link className="active" to="/dashboard"><TrendingUp size={18}/> Dashboard</Link>
           <Link to="/members"><Users size={18}/> Members</Link>
           <Link to="/savings"><Wallet2 size={18}/> Savings</Link>
-          <Link to="/payments"><CircleDollarSign size={18}/> Payments</Link>
           <Link to="/loans"><Landmark size={18}/> Loans</Link>
           <Link to="/meetings"><CalendarDays size={18}/> Meetings</Link>
           <Link to="/reports"><FileText size={18}/> Reports</Link>
@@ -49,7 +48,7 @@ export default function DashboardPage() {
             <div style={{display:'flex', gap:'.6rem', alignItems:'center'}}>
               <button className="btn btn-secondary"><Search size={16}/></button>
               <button className="btn btn-secondary"><Bell size={16}/></button>
-              <Link to="/members" className="btn btn-primary"><Plus size={16}/> New member</Link>
+              <Link to="/members" className="btn btn-primary"><Plus size={16}/> {t('newMember')}</Link>
             </div>
           </div>
 
@@ -69,13 +68,13 @@ export default function DashboardPage() {
             </div>
             <div className="card" style={{padding:'1.2rem'}}>
               <div className="section-title" style={{marginBottom:'1rem'}}>
-                <h2 style={{fontSize:'1.2rem'}}>Upcoming meetings</h2>
-                <a href="#" className="muted">View all</a>
+                <h2 style={{fontSize:'1.2rem'}}>{t('upcomingMeetings')}</h2>
+                <a href="#" className="muted">{t('viewAll')}</a>
               </div>
               <div style={{display:'grid', gap:'.8rem'}}>
                 {['Monthly Review', 'Loan Committee', 'Savings Circle'].map((item, idx) => <div key={idx} className="card" style={{padding:'.9rem', background:'#fdfcf7'}}>
                   <div style={{fontWeight:700}}>{item}</div>
-                  <div className="muted">कल • सुबह 10:30</div>
+                  <div className="muted">Tomorrow • 10:30 AM</div>
                 </div>)}
               </div>
             </div>
@@ -84,8 +83,8 @@ export default function DashboardPage() {
           <div className="grid-2" style={{marginTop:'1.2rem', gap:'1rem'}}>
             <div className="card" style={{padding:'1.2rem'}}>
               <div className="section-title">
-                <h2 style={{fontSize:'1.2rem'}}>Recent activity</h2>
-                <a href="#" className="muted">Update</a>
+                <h2 style={{fontSize:'1.2rem'}}>{t('recentActivity')}</h2>
+                <a href="#" className="muted">{t('syncLabel')}</a>
               </div>
               <div style={{display:'grid', gap:'.8rem'}}>
                 {activities.map((item, idx) => <div key={idx} style={{display:'flex', justifyContent:'space-between', alignItems:'center', padding:'.8rem 0', borderBottom:'1px solid var(--border)'}}>

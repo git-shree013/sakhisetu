@@ -111,7 +111,6 @@ const translations = {
     viewAll: 'View all',
     syncLabel: 'Sync',
     newMember: 'New Member',
-    memberRole: 'SHG Leader',
     stepOneTitle: 'Create your SHG profile',
     stepOneText: 'Onboard your group, members, and governance rules in a few guided steps.',
     stepTwoTitle: 'Digitize collections',

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Navbar, Breadcrumbs } from './components/Layout';
 import CommandPalette from './components/CommandPalette';
@@ -22,7 +22,7 @@ function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMode, setModalMode] = useState('member');
   const [form, setForm] = useState({ name: '', phone: '', village: '', savings: '', member: '', amount: '', title: '', time: '', note: '' });
-  const { addMember, recordSavings, approveLoan, addMeeting, recordPayment, askSakhiAI } = useAppData();
+  const { addMember, recordSavings, addMeeting, recordPayment } = useAppData();
 
   const openModal = (mode) => {
     setModalMode(mode);
@@ -41,7 +41,7 @@ function App() {
       addMeeting({ title: form.title, time: form.time, note: form.note });
     }
     if (modalMode === 'payment') {
-      recordPayment({ member: form.member, amount: form.amount, method: 'UPI', date: new Date().toISOString().slice(0, 10) });
+      recordPayment({ member: form.member, amount: form.amount, method: 'UPI' });
     }
     setModalOpen(false);
     setForm({ name: '', phone: '', village: '', savings: '', member: '', amount: '', title: '', time: '', note: '' });
@@ -69,7 +69,7 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <CommandPalette open={commandOpen} onClose={() => setCommandOpen(false)} onOpen={() => setCommandOpen(true)} />
-      <FloatingActionButton onOpenModal={() => openModal('member')} />
+      <FloatingActionButton onOpenModal={openModal} />
       <Modal open={modalOpen} title={modalMode === 'member' ? 'Add new member' : modalMode === 'savings' ? 'Record savings' : modalMode === 'payment' ? 'Record payment' : 'Add meeting'} onClose={() => setModalOpen(false)}>
         <form onSubmit={submitQuickAction} style={{ display: 'grid', gap: '.8rem' }}>
           {modalMode === 'member' && (<>

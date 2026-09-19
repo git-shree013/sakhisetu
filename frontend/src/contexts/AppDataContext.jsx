@@ -105,7 +105,7 @@ export function AppDataProvider({ children }) {
   const approveLoan = (loanId) => {
     setData((prev) => ({
       ...prev,
-      loans: prev.loans.map((loan) => loan.id === loanId ? { ...loan, status: 'मंजूर' } : loan)
+      loans: prev.loans.map((loan) => loan.id === loanId ? { ...loan, status: 'Approved' } : loan)
     }));
   };
 
@@ -121,22 +121,20 @@ export function AppDataProvider({ children }) {
   };
 
   const recordPayment = (paymentInput) => {
-    const amount = Number(paymentInput.amount) || 0;
     const payment = {
       id: Date.now(),
       member: paymentInput.member,
-      amount,
-      date: paymentInput.date || new Date().toISOString().slice(0, 10),
+      amount: Number(paymentInput.amount) || 0,
+      date: new Date().toISOString().slice(0, 10),
       method: paymentInput.method || 'UPI',
       status: 'Paid'
     };
-
-    setData((prev) => ({ ...prev, payments: [payment, ...(prev.payments || [])] }));
+    setData((prev) => ({ ...prev, payments: [payment, ...prev.payments] }));
   };
 
   const askSakhiAI = (query) => getSakhiAIResponse(query, {
     members: data.members.length,
-    activeLoans: data.loans.filter((loan) => loan.status === 'मंजूर').length,
+    activeLoans: data.loans.filter((loan) => loan.status === 'Approved').length,
     overdueLoans: data.loans.filter((loan) => loan.status === 'Overdue').length,
     totalSavings: data.savings.reduce((sum, item) => sum + item.amount, 0)
   });

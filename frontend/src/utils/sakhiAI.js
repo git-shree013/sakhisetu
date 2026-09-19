@@ -17,7 +17,7 @@ export function getSakhiAIResponse(input = '', context = {}) {
 
   if (text.includes('saving') || text.includes('बचत')) {
     return {
-      message: `Sakhi AI: Update the deposit details and review today’s collection list.`,
+      message: 'Sakhi AI: Update the deposit details and review today\'s collection list.',
       action: 'review-savings'
     };
   }
