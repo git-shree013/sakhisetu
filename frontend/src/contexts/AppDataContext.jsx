@@ -26,7 +26,7 @@ const initialMeetings = [
 function readStoredData() {
   if (typeof window === 'undefined') return null;
   try {
-    const raw = window.localStorage.getItem('gramsakhi-data');
+    const raw = window.localStorage.getItem('sakhisetu-data');
     return raw ? JSON.parse(raw) : null;
   } catch {
     return null;
@@ -59,7 +59,7 @@ export function AppDataProvider({ children }) {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      window.localStorage.setItem('gramsakhi-data', JSON.stringify(data));
+      window.localStorage.setItem('sakhisetu-data', JSON.stringify(data));
     }
   }, [data]);
 

@@ -25,7 +25,7 @@ const steps = [
 ];
 
 const testimonials = [
-  { quote: 'GramSakhi से हमारी गाँव की बचत और ऋण की जानकारी साफ और भरोसेमंद हो गई।', name: 'अनिता देवी', role: 'कार्यक्रम अधिकारी, SEWA' },
+  { quote: 'SakhiSetu से हमारी गाँव की बचत और ऋण की जानकारी साफ और भरोसेमंद हो गई।', name: 'अनिता देवी', role: 'कार्यक्रम अधिकारी, SEWA' },
   { quote: 'यह डैशबोर्ड महीने का काम जल्दी समझने में मदद करता है।', name: 'रवि कुमार', role: 'वित्त Lead, Rural Futures' }
 ];
 
@@ -68,7 +68,7 @@ export default function HomePage() {
           </section>
 
           <section id="features" className="section container">
-            <SectionHeader eyebrow="GramSakhi के बारे में" title={t('aboutTitle')} subtitle={t('aboutSubtitle')} />
+            <SectionHeader eyebrow="SakhiSetu के बारे में" title={t('aboutTitle')} subtitle={t('aboutSubtitle')} />
             <div className="grid-3">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
@@ -143,7 +143,7 @@ export default function HomePage() {
           <section className="section container">
             <SectionHeader eyebrow="छवियाँ" title="वास्तविक ग्राम जीवन को दिखाने वाला प्लेटफ़ॉर्म" subtitle="हर अनुभव सरल, शांत और भरोसेमंद महसूस हो, इसलिए इसे ऐसा बनाया गया है।" />
             <div className="grid-3">
-              {gallery.map((src, idx) => <motion.img key={idx} whileHover={{scale:1.02}} src={src} alt="GramSakhi community" style={{borderRadius:'24px', height:'240px', objectFit:'cover', boxShadow:'0 20px 40px rgba(15,23,42,.08)'}} />)}
+              {gallery.map((src, idx) => <motion.img key={idx} whileHover={{scale:1.02}} src={src} alt="SakhiSetu community" style={{borderRadius:'24px', height:'240px', objectFit:'cover', boxShadow:'0 20px 40px rgba(15,23,42,.08)'}} />)}
             </div>
           </section>
 
@@ -151,7 +151,7 @@ export default function HomePage() {
             <SectionHeader eyebrow="अक्सर पूछे जाने वाले सवाल" title="आपको जो जानना जरूरी है" subtitle="यह आसान और सरल तरीके से समझने के लिए बनाया गया है।" />
             <div className="grid-2">
               <div className="card" style={{padding:'1.2rem'}}>
-                <h3 style={{marginTop:0}}>क्या GramSakhi ऑफलाइन भी काम कर सकता है?</h3>
+                <h3 style={{marginTop:0}}>क्या SakhiSetu ऑफलाइन भी काम कर सकता है?</h3>
                 <p className="muted">हाँ, खेत में काम करने वाले लोग जानकारी अपने पास दर्ज कर सकते हैं और इंटरनेट आने पर उसे अपडेट कर सकते हैं।</p>
               </div>
               <div className="card" style={{padding:'1.2rem'}}>
@@ -165,10 +165,10 @@ export default function HomePage() {
         <footer style={{padding:'3rem 0 2rem', borderTop:'1px solid var(--border)'}}>
           <div className="container" style={{display:'flex', justifyContent:'space-between', alignItems:'center', gap:'1rem', flexWrap:'wrap'}}>
             <div>
-              <div className="brand" style={{marginBottom:'0.35rem'}}><div className="brand-mark">G</div><span>GramSakhi</span></div>
+              <div className="brand" style={{marginBottom:'0.35rem'}}><div className="brand-mark">S</div><span>SakhiSetu</span></div>
               <div className="muted">गाँव की स्वयं सहायता समूहों के लिए आसान और भरोसेमंद डिजिटल मदद।</div>
             </div>
-            <div className="muted">© 2026 GramSakhi. पारदर्शिता और विकास के लिए बनाया गया।</div>
+            <div className="muted">© 2026 SakhiSetu. पारदर्शिता और विकास के लिए बनाया गया।</div>
           </div>
         </footer>
       </div>

@@ -1,6 +1,6 @@
-# GramSakhi
+# SakhiSetu
 
-GramSakhi is a premium, production-ready Self Help Group Management System designed for NGOs, banks, government agencies, and rural community organizations.
+SakhiSetu is a premium, production-ready Self Help Group Management System designed for NGOs, banks, government agencies, and rural community organizations.
 
 ## Stack
 - Frontend: React + Vite + Framer Motion + Lucide Icons

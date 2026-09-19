@@ -11,8 +11,8 @@ export function Navbar({ onOpenCommand }) {
     <header className="navbar">
       <div className="container topbar">
         <Link to="/" className="brand">
-          <div className="brand-mark">G</div>
-          <span>GramSakhi</span>
+          <div className="brand-mark">S</div>
+          <span>SakhiSetu</span>
         </Link>
         <nav className="nav-links">
           <a href="#features">{t('navFeatures')}</a>

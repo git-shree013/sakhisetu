@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 app.get('/api/health', (_req, res) => {
-  res.json({ status: 'ok', service: 'gramsakhi-api', timestamp: new Date().toISOString() });
+  res.json({ status: 'ok', service: 'sakhisetu-api', timestamp: new Date().toISOString() });
 });
 
 app.use('/api/auth', authRoutes);
@@ -30,7 +30,7 @@ app.use('/api/loans', loanRoutes);
 app.use('/api/meetings', meetingRoutes);
 app.use('/api/reports', reportRoutes);
 
-mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/gramsakhi').then(() => {
+mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/sakhisetu').then(() => {
   console.log('MongoDB connected');
   app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
 }).catch((error) => {

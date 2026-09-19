@@ -27,8 +27,8 @@ export default function DashboardPage() {
       <div className="dashboard-layout">
         <aside className="sidebar">
           <div className="brand" style={{marginBottom:'1.6rem'}}>
-            <div className="brand-mark">G</div>
-            <span>GramSakhi</span>
+            <div className="brand-mark">S</div>
+            <span>SakhiSetu</span>
           </div>
           <Link className="active" to="/dashboard"><TrendingUp size={18}/> Dashboard</Link>
           <Link to="/members"><Users size={18}/> Members</Link>

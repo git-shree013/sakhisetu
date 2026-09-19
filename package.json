@@ -1,8 +1,8 @@
 {
-  "name": "gramsakhi",
+  "name": "sakhisetu",
   "version": "1.0.0",
   "private": true,
-  "description": "GramSakhi - premium SHG management platform",
+  "description": "SakhiSetu - premium SHG management platform",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd backend && npm run dev",

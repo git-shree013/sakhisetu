@@ -33,8 +33,8 @@ export default function AuthPage() {
           </div>
           <div className="auth-form">
             <div className="brand">
-              <div className="brand-mark">G</div>
-              <span>GramSakhi</span>
+              <div className="brand-mark">S</div>
+              <span>SakhiSetu</span>
             </div>
             <h3 style={{margin:'0.2rem 0 0', fontFamily:'Poppins, sans-serif'}}>{t(mode.titleKey)}</h3>
             <p className="muted" style={{margin:0}}>{t(mode.subtitleKey)}</p>
